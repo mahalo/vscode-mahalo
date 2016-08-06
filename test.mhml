@@ -1,7 +1,7 @@
 <show id="marlo-brando"
-      if=' user.firstName + user.lastName == "Marlo Brando" '>
+      if=' user.firstName + user.lastName == "Marlo Brando" && true '>
     
-    ${ user.firstName + false + 0.9 + 'ttt'} ${ user.lastName }
+    ${ user.firstName + 0.9 + 'ttt'} ${ user.lastName }: ${ 500.00 } ${ 'points' | translate }
     
-    <button @click='addUser()'></button>
+    <button @click=' updatePoints(user) '></button>
 </show>
