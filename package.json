@@ -1,0 +1,37 @@
+{
+  "name": "mahalo",
+  "displayName": "Mahalo",
+  "description": "Mahalo template integration",
+  "icon": "./images/mahalo.png",
+  "version": "0.6.0",
+  "publisher": "makuko",
+  "repository": "mahalo/vscode-mahalo",
+  "categories": [
+    "Languages"
+  ],
+  "license": "MIT",
+  "engines": {
+    "vscode": "0.10.x"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "MHML",
+        "aliases": [
+          "Mahalo Markup Language"
+        ],
+        "extensions": [
+          ".mhml"
+        ],
+        "configuration": "./syntaxes/MHML.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "MHML",
+        "scopeName": "text.html.mhml",
+        "path": "./syntaxes/MHML.tmLanguage"
+      }
+    ]
+  }
+}
