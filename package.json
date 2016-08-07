@@ -2,7 +2,7 @@
   "name": "mahalo",
   "displayName": "Mahalo",
   "description": "Mahalo template integration",
-  "icon": "./images/mahalo.png",
+  "icon": "images/mahalo.png",
   "version": "0.6.0",
   "publisher": "makuko",
   "repository": "mahalo/vscode-mahalo",
