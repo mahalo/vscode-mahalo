@@ -3,7 +3,7 @@
   "displayName": "Mahalo",
   "description": "Mahalo template integration",
   "icon": "./images/mahalo.png",
-  "version": "0.6.0",
+  "version": "0.5.0",
   "publisher": "makuko",
   "repository": "mahalo/vscode-mahalo",
   "categories": [
