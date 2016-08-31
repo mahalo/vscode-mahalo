@@ -5,6 +5,11 @@
         <key>fileTypes</key>
         <array>
             <string>mhml</string>
+            <string>mtpl</string>
+            <string>mh.xml</string>
+            <string>mh.html</string>
+            <string>mh.htm</string>
+            <string>mh.tpl</string>
         </array>
         <key>name</key>
         <string>Mahalo Markup Language</string>
@@ -18,22 +23,22 @@
                     <key>1</key>
                     <dict>
                         <key>name</key>
-                        <string>punctuation.definition.tag.begin.html</string>
+                        <string>punctuation.definition.tag.begin.mhml</string>
                     </dict>
                     <key>2</key>
                     <dict>
                         <key>name</key>
-                        <string>entity.name.tag.other.html</string>
+                        <string>entity.name.tag.other.mhml</string>
                     </dict>
                 </dict>
                 <key>end</key>
-                <string>(&gt;)</string>
+                <string>&gt;</string>
                 <key>endCaptures</key>
                 <dict>
-                    <key>1</key>
+                    <key>0</key>
                     <dict>
                         <key>name</key>
-                        <string>punctuation.definition.tag.end.html</string>
+                        <string>punctuation.definition.tag.end.mhml</string>
                     </dict>
                 </dict>
                 <key>name</key>
@@ -59,7 +64,7 @@
                     <key>2</key>
                     <dict>
                         <key>name</key>
-                        <string>keyword.operator.mhml</string>
+                        <string>punctuation.definition.tag.output.mhml</string>
                     </dict>
                 </dict>
                 <key>end</key>
@@ -69,7 +74,7 @@
                     <key>0</key>
                     <dict>
                         <key>name</key>
-                        <string>keyword.operator.mhml</string>
+                        <string>punctuation.definition.tag.output.mhml</string>
                     </dict>
                 </dict>
                 <key>name</key>
@@ -94,12 +99,17 @@
                 <key>patterns</key>
                 <array>
                     <dict>
-                        <key>include</key>
-                        <string>#expression-stuff</string>
-                    </dict>
-                    <dict>
-                        <key>include</key>
-                        <string>#string-double-quoted</string>
+                        <key>begin</key>
+                        <string>\{</string>
+                        <key>end</key>
+                        <string>\}</string>
+                        <key>patterns</key>
+                        <array>
+                            <dict>
+                                <key>include</key>
+                                <string>#expression-output</string>
+                            </dict>
+                        </array>
                     </dict>
                     <dict>
                         <key>include</key>
@@ -107,25 +117,7 @@
                     </dict>
                     <dict>
                         <key>include</key>
-                        <string>#invalid</string>
-                    </dict>
-                </array>
-            </dict>
-            <key>expression-attribute</key>
-            <dict>
-                <key>patterns</key>
-                <array>
-                    <dict>
-                        <key>include</key>
                         <string>#expression-stuff</string>
-                    </dict>
-                    <dict>
-                        <key>include</key>
-                        <string>#string-double-quoted</string>
-                    </dict>
-                    <dict>
-                        <key>include</key>
-                        <string>#invalid</string>
                     </dict>
                 </array>
             </dict>
@@ -134,31 +126,8 @@
                 <key>patterns</key>
                 <array>
                     <dict>
-                        <key>begin</key>
-                        <string>\{</string>
-                        <key>end</key>
-                        <string>\}</string>
-                        <key>captures</key>
-                        <dict>
-                            <key>0</key>
-                            <dict>
-                                <key>name</key>
-                                <string>meta.brace.curly.mhml</string>
-                            </dict>
-                        </dict>
-                        <key>name</key>
-                        <string>meta.inner-curly.mhml</string>
-                        <key>patterns</key>
-                        <array>
-                            <dict>
-                                <key>inlcude</key>
-                                <string>#expression</string>
-                            </dict>
-                        </array>
-                    </dict>
-                    <dict>
                         <key>match</key>
-                        <string>\.|\+|\-|\*|/|%|\?|!=|!|==|&lt;=|&gt;=|&lt;|&gt;|\|\||\||&amp;&amp;|\(|\)|\[|\]|\{|\}</string>
+                        <string>\.|:|,|\+|\-|\*|/|%|\?|!=|!|==|&lt;=|&gt;=|&lt;|&gt;|\|\||\||&amp;&amp;|\(|\)|\[|\]|\{|\}</string>
                         <key>name</key>
                         <string>keyword.operator.mhml</string>
                     </dict>
@@ -176,9 +145,19 @@
                     </dict>
                     <dict>
                         <key>match</key>
-                        <string>\b(\w+)\b</string>
+                        <string>\$?\b([\w]+)\b</string>
                         <key>name</key>
                         <string>meta.object.member.mhml</string>
+                    </dict>
+                    <dict>
+                        <key>include</key>
+                        <string>#string-double-quoted</string>
+                    </dict>
+                    <dict>
+                        <key>match</key>
+                        <string>[^\s]</string>
+                        <key>name</key>
+                        <string>invalid.illegal</string>
                     </dict>
                 </array>
             </dict>
@@ -221,13 +200,6 @@
                 <key>name</key>
                 <string>constant.character.escape</string>
             </dict>
-            <key>invalid</key>
-            <dict>
-                <key>match</key>
-                <string>[^\s]+</string>
-                <key>name</key>
-                <string>invalid.illegal</string>
-            </dict>
             <key>tag-stuff</key>
             <dict>
                 <key>patterns</key>
@@ -265,7 +237,7 @@
                             <key>2</key>
                             <dict>
                                 <key>name</key>
-                                <string>keyword.operator.mhml</string>
+                                <string>punctuation.definition.tag.attribute.mhml</string>
                             </dict>
                         </dict>
                         <key>end</key>
@@ -275,7 +247,7 @@
                             <key>0</key>
                             <dict>
                                 <key>name</key>
-                                <string>keyword.operator.mhml</string>
+                                <string>punctuation.definition.tag.attribute.mhml</string>
                             </dict>
                         </dict>
                         <key>name</key>
@@ -284,7 +256,7 @@
                         <array>
                             <dict>
                                 <key>include</key>
-                                <string>#expression-attribute</string>
+                                <string>#expression-stuff</string>
                             </dict>
                         </array>
                     </dict>
@@ -318,6 +290,12 @@
                         <key>name</key>
                         <string>string.unquoted.html</string>
 				    </dict>
+                    <dict>
+                        <key>match</key>
+                        <string>[^\s]</string>
+                        <key>name</key>
+                        <string>punctuation.definition.tag.inside.mhml</string>
+                    </dict>
                 </array>
             </dict>
         </dict>

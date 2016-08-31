@@ -21,9 +21,14 @@
           "Mahalo Markup Language"
         ],
         "extensions": [
-          ".mhml"
+          ".mhml",
+          ".mtpl",
+          ".mh.xml",
+          ".mh.html",
+          ".mh.htm",
+          ".mh.tpl"
         ],
-        "configuration": "./syntaxes/MHML.configuration.json"
+        "configuration": "./MHML.configuration.json"
       }
     ],
     "grammars": [
